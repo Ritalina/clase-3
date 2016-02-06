@@ -47,11 +47,22 @@ app.get('/', function (req, res) {
 	res.send('This is my simple server')
 })
 
+app.get('/r/:subreddit', function (req, res){
+	console.log(req.params)
+	res.send('Estas en ' + req.params.subreddit)
+})
+
+app.get('/location/:ESTADO/:CIUDAD', function (req, res){
+	res.send('Bienvenido a ' + req.params.CIUDAD + ' en el bonito estado de ' + req.params.ESTADO)
+})
+
 // Hacer un URL handler para:
 // /location/quintana-roo/cancun
 // /location/estado-de-mexico/toluca
 // /location/sonora/hermosillo
 // Mostrar Bienvenido a CIUDAD en el bonito estado de ESTADO
+
+
 
 // Termina la declaracion de url handlers
 
