@@ -48,18 +48,12 @@ app.get('/', function (req, res) {
 })
 
 app.get('/location/:state/:city', function(req, res){
-	req.session.state = req.params.state
-	req.session.city = req.params.city
-
+	// Guardar en session la ciudad y estados que se visitaron
 	res.send('Welcome to '+ req.params.city +' in the beatifull state of ' + req.params.state)
 })
 
 app.get('/last', function(req, res){
-	if(!req.session.city){
-		res.send('You havent visited any cities')
-	}else{
-		res.send('Last location: '+ req.session.city +', '+req.session.state)
-	}
+	// Mostrar la ultima ciudad y estado visitados
 })
 // Termina la declaracion de url handlers
 

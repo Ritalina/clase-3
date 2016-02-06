@@ -47,20 +47,12 @@ app.get('/', function (req, res) {
 	res.send('This is my simple server')
 })
 
-app.get('/location/:state/:city', function(req, res){
-	req.session.state = req.params.state
-	req.session.city = req.params.city
+// Hacer un URL handler para:
+// /location/quintana-roo/cancun
+// /location/estado-de-mexico/toluca
+// /location/sonora/hermosillo
+// Mostrar Bienvenido a CIUDAD en el bonito estado de ESTADO
 
-	res.send('Welcome to '+ req.params.city +' in the beatifull state of ' + req.params.state)
-})
-
-app.get('/last', function(req, res){
-	if(!req.session.city){
-		res.send('You havent visited any cities')
-	}else{
-		res.send('Last location: '+ req.session.city +', '+req.session.state)
-	}
-})
 // Termina la declaracion de url handlers
 
 app.listen(3000, function () {
